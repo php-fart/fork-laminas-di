@@ -57,7 +57,7 @@ class DefaultContainer implements ContainerInterface
      * @param string $name
      * @return bool
      */
-    public function has($name)
+    public function has($name): bool
     {
         if (isset($this->services[$name])) {
             return true;
@@ -80,7 +80,7 @@ class DefaultContainer implements ContainerInterface
      * @param string $name
      * @return object
      */
-    public function get($name)
+    public function get($name): mixed
     {
         if (! isset($this->services[$name])) {
             $this->services[$name] = $this->injector->create($name);
